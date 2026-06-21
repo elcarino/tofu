@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { GlassCard } from '../components/GlassCard';
 import { Button } from '../components/Button';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { SERVICES_DATA } from '../data/services';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ export function Contact() {
     // we sequence all form submissions into a clean WhatsApp message format.
     const textBody = `*New Inquiry via Website*\n\n*Name:* ${formData.name}\n*Contact:* ${formData.contact}\n*Service:* ${formData.service}\n\n*Message:*\n${formData.message}`;
     
-    const waNumber = '8801338699948';
+    const waNumber = '244948479645';
     const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(textBody)}`;
     
     // Open WhatsApp Web or the WhatsApp application dynamically
@@ -153,14 +154,16 @@ export function Contact() {
                         onChange={(e) => setFormData({...formData, service: e.target.value})}
                         className="w-full bg-navy-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-glow-blue-300 focus:ring-1 focus:ring-glow-blue-300 transition-all appearance-none font-sans"
                       >
-                        <option value="" disabled>Select a category...</option>
-                        <option value="web">Website Development</option>
-                        <option value="app">Mobile App Development</option>
-                        <option value="ui">UI/UX Design</option>
-                        <option value="graphic">Graphic Design</option>
-                        <option value="marketing">Digital Marketing</option>
-                        <option value="3d">Architecture & 3D Visualization</option>
-                        <option value="custom">Custom Digital Solutions</option>
+                        <option value="" disabled>Select a service...</option>
+                        {SERVICES_DATA.map((serviceCategory) => (
+                          <optgroup key={serviceCategory.title} label={serviceCategory.title}>
+                            {serviceCategory.subServices.map((sub) => (
+                              <option key={sub.title} value={sub.title}>
+                                {sub.title}
+                              </option>
+                            ))}
+                          </optgroup>
+                        ))}
                       </select>
                     </div>
 

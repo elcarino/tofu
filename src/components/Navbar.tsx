@@ -37,7 +37,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-2xl font-bold font-heading text-white flex items-center gap-2">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2T2G2dUI3nBSmp2AF1XFI9Rv8vtBhv6gwbRfYf8aKnA&s=10" alt="TOFU Logo" className="h-8 w-auto rounded-md mix-blend-screen" />
+            <img src="https://i.ibb.co.com/xqbyRV7V/Chat-GPT-Image-Jun-21-2026-07-36-23-PM.png" alt="TOFU Logo" className="h-8 w-auto mix-blend-screen" />
             <span className="text-glow-blue-200">TOFU</span>
           </Link>
 

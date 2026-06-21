@@ -15,12 +15,6 @@ const TEAM = [
     role: "Co-Founder, Business Developer",
     image: "https://i.ibb.co.com/mrQ8C239/Untitled-design-2.png",
     imageClass: "w-full h-full object-cover object-top"
-  },
-  {
-    name: "Rahana Ahmed",
-    role: "Client Support Specialist",
-    image: "https://i.ibb.co.com/0yS0gTPB/Untitled-design-3.png",
-    imageClass: "w-full h-full object-cover object-top"
   }
 ];
 
@@ -48,7 +42,7 @@ export function About() {
           >
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">About TOFU</h1>
             <p className="text-base md:text-lg text-text-body leading-relaxed">
-              Transforming Opportunities For You. We are a creative collective built on the belief that every business has a unique story to tell through tailored digital experiences.
+              TOFU is a Business Growth & Digital Solutions Company focused on helping businesses grow through technology, strategy, and digital transformation.
             </p>
           </motion.div>
         </div>
@@ -130,7 +124,7 @@ export function About() {
             <h2 className="text-2xl font-bold text-white">The People Behind TOFU</h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {TEAM.map((member, i) => (
               <motion.div 
                 key={i}
@@ -150,6 +144,19 @@ export function About() {
               </motion.div>
             ))}
           </div>
+          
+          <motion.div 
+            className="max-w-md mx-auto mt-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <GlassCard className="p-8 text-center border-dashed border-white/20">
+               <h3 className="text-lg font-bold text-white mb-2">Future Team Expansion</h3>
+               <p className="text-glow-blue-200 text-sm font-semibold uppercase tracking-widest">Coming Soon</p>
+            </GlassCard>
+          </motion.div>
         </div>
       </section>
 

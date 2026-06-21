@@ -4,7 +4,7 @@ import { Button } from '../components/Button';
 import { ArrowUpRight } from 'lucide-react';
 import { useState } from 'react';
 
-const CATEGORIES = ["All", "Websites", "Mobile Apps", "UI/UX", "3D Design"];
+const CATEGORIES = ["All", "Websites", "Google Business Services", "Graphic Design", "3D Design"];
 
 const PROJECTS = [
   {
@@ -27,21 +27,21 @@ const PROJECTS = [
   },
   {
     id: 3,
-    title: "Pulse — Social Profile & Settings App UI",
-    category: "UI/UX",
-    challenge: "The client needed a dark-mode mobile app interface for a social/community platform that felt sleek and modern, while still keeping core user flows — profile, settings, and account editing — simple and easy to navigate. The challenge was designing a UI that felt premium and on-trend without sacrificing usability across multiple nested screens.",
-    solution: "We designed a clean dark-themed UI using a high-contrast black background paired with a vibrant lime-green accent to highlight key actions like toggles, buttons, and tab indicators. The \"My Profile\" screen surfaces follower stats, content tabs (Feed, Challenge, Badge), and recent posts in a scannable layout. The Settings screen organizes account options — notifications, dark mode, language, contact info — into a clean list structure, while the Edit Profile screen keeps form fields minimal and well-spaced for quick edits, with a clear \"Save Changes\" call-to-action.",
-    image: "https://mir-s3-cdn-cf.behance.net/projects/404/efb575245941343.Y3JvcCwyOTg1LDIzMzUsMTAzLDA.png",
-    outcome: "The final UI delivers a consistent, polished dark-mode experience across all core screens, making everyday actions like updating a profile or adjusting settings feel fast and intuitive for users."
+    title: "Corporate Brand Identity System",
+    category: "Graphic Design",
+    challenge: "The client had no consistent visual style across their materials, making it hard to stand out in a competitive market. Colors, fonts, and layouts were all over the place with no clear direction or brand voice.",
+    solution: "We developed a clean, modern design system with a defined color palette, typography, and reusable templates. All creatives were built around a single visual language that worked across print, digital, and social media.",
+    image: "https://img.freepik.com/free-vector/modern-professional-business-stationery-set_23-2148367387.jpg?semt=ais_user_personalization&w=740&q=80",
+    outcome: "The brand saw a 35% increase in audience engagement within the first two months of the redesign launch. The client now has a strong, recognizable identity that they can maintain independently going forward."
   },
   {
     id: 4,
-    title: "Mindwave — Mental Wellness & Sleep Tracking App",
-    category: "Mobile Apps",
-    challenge: "The client needed a wellness app that could track mood, sleep, and overall health without feeling overwhelming or clinical to the user.",
-    solution: "We designed a calm, dark-themed UI with soft pastel accents and rounded cards. A mood check-in greets users on the home screen, while circular charts and clean graphs visualize sleep, stress, and health scores at a glance.",
-    image: "https://cdn.dribbble.com/userupload/46661712/file/255d7ceab253e2a6d4a10689b625f82e.webp?format=webp&resize=400x300&vertical=center",
-    outcome: "A wellness app that makes daily self-check-ins feel light and easy — encouraging users to build a consistent health-tracking habit."
+    title: "Google Business Profile Setup",
+    category: "Google Business Services",
+    challenge: "The client had no Google Business Profile, making them completely invisible in local search results. Competitors were ranking higher on Maps and getting more calls, visits, and customer trust.",
+    solution: "We created and fully optimized their Google Business Profile with accurate info, photos, and categories. Verified the account, set up Business Profile settings, and enabled reviews and regular post updates.",
+    image: "https://embedsocial.com/wp-content/uploads/2024/08/add-role-google-business-profile-settings.jpg",
+    outcome: "The business started appearing in Google Maps and local search within the first two weeks of going live. Customer calls and profile visits increased significantly, building stronger local trust and online visibility."
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ const PROJECTS = [
   {
     id: 6,
     title: "Subcom — E-commerce Admin Dashboard",
-    category: "UI/UX",
+    category: "Graphic Design",
     challenge: "The client needed a dashboard that could show key store metrics — revenue, customers, orders — at a glance, without digging through multiple pages.",
     solution: "We designed a clean dashboard with metric cards, a sales summary chart, top products, and a recent orders table — all organized with clear visual hierarchy and a simple sidebar for navigation.",
     image: "https://mir-s3-cdn-cf.behance.net/project_modules/1400/84abf4184403667.6551a930b3b2b.jpg",

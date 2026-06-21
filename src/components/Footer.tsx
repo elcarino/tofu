@@ -12,7 +12,7 @@ export function Footer() {
           
           <div className="space-y-4">
             <Link to="/" className="text-2xl font-bold font-heading text-white flex items-center gap-2">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2T2G2dUI3nBSmp2AF1XFI9Rv8vtBhv6gwbRfYf8aKnA&s=10" alt="TOFU Logo" className="h-8 w-auto rounded-md mix-blend-screen" />
+              <img src="https://i.ibb.co.com/xqbyRV7V/Chat-GPT-Image-Jun-21-2026-07-36-23-PM.png" alt="TOFU Logo" className="h-8 w-auto mix-blend-screen" />
               <span className="text-glow-blue-200">TOFU</span>
             </Link>
             <p className="text-text-body text-sm leading-relaxed">

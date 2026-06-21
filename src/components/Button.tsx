@@ -6,6 +6,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary';
   href?: string;
   className?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 export function Button({ children, variant = 'primary', href, className = '', ...props }: ButtonProps) {

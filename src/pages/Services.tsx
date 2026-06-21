@@ -1,14 +1,17 @@
-import { motion } from 'motion/react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { GlassCard } from '../components/GlassCard';
 import { Button } from '../components/Button';
 import { SERVICES_DATA } from '../data/services';
-import { ArrowRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export function Services() {
+  const [expandedId, setExpandedId] = useState<string>("");
+
   return (
     <div className="w-full">
       {/* Header */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-32 pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <div className="absolute inset-0 bg-navy-900/60 mix-blend-multiply z-10" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-900/80 via-navy-900/60 to-navy-900 z-10" />
@@ -35,93 +38,120 @@ export function Services() {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="pb-24">
+      {/* Services Accordion */}
+      <section className="pt-20 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-24">
-            {SERVICES_DATA.map((service, index) => (
-              <motion.div 
-                key={service.id}
-                id={service.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
-                className="scroll-mt-32"
-              >
-                <div className="flex flex-col lg:flex-row gap-12 lg:items-start">
-                  <div className="lg:w-1/3">
-                    <div className="sticky top-32">
-                      <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center mb-6">
-                        <service.icon className="w-8 h-8 text-glow-blue-100" />
-                      </div>
-                      <h2 className="text-2xl font-bold text-white mb-4">{service.title}</h2>
-                      <p className="text-text-body text-base mb-8 leading-relaxed">
-                        {service.intro}
-                      </p>
-                      <Button href="/contact" variant="primary">
-                        Get Free Consultation
-                      </Button>
-                    </div>
-                  </div>
-                  
-                  <div className="lg:w-2/3">
-                    <GlassCard className="p-8 md:p-10">
-                      <div className="grid md:grid-cols-2 gap-10">
-                        <div>
-                          <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-glow-blue-200"></span> What We Offer
-                          </h3>
-                          <ul className="space-y-4 text-sm">
-                            {service.offerings.map((item, i) => (
-                              <li key={i} className="text-text-body flex gap-3">
-                                <span className="text-glow-blue-300 mt-1">✓</span>
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
+          <div className="space-y-6">
+            {SERVICES_DATA.map((service, index) => {
+              const isExpanded = expandedId === service.id;
+              
+              return (
+                <motion.div 
+                  key={service.id}
+                  id={service.id}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="scroll-mt-32"
+                >
+                  <button 
+                    onClick={() => setExpandedId(isExpanded ? "" : service.id)}
+                    className="w-full text-left"
+                  >
+                    <GlassCard className={`p-6 md:p-8 flex items-center justify-between transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.4)] hover:shadow-[0_0_40px_rgba(30,195,255,0.2)] ${isExpanded ? 'border-glow-blue-300 bg-white/5' : 'hover:border-white/30'}`}>
+                      <div className="flex items-center gap-6">
+                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-colors ${isExpanded ? 'bg-glow-blue-500/20 text-glow-blue-200' : 'bg-white/5 text-white/70'}`}>
+                          <service.icon className="w-8 h-8" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-glow-blue-200"></span> Our Process
-                          </h3>
-                          <ol className="space-y-4 text-sm relative before:absolute before:inset-y-0 before:left-[11px] before:w-[2px] before:bg-white/10">
-                            {service.process.map((step, i) => (
-                              <li key={i} className="text-text-body flex gap-4 relative z-10">
-                                <span className="bg-navy-900 border border-white/20 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-glow-blue-100 shrink-0">
-                                  {i + 1}
-                                </span>
-                                <span className="pt-0.5">{step}</span>
-                              </li>
-                            ))}
-                          </ol>
+                          <h2 className="text-2xl font-bold text-white mb-1">{service.title}</h2>
+                          <p className="text-text-body text-sm md:text-base">{service.shortDesc}</p>
                         </div>
                       </div>
-
-                      {service.additional && (
-                         <div className="mt-10 pt-8 border-t border-white/10">
-                           <h4 className="text-sm font-bold text-glow-blue-200 uppercase tracking-wider mb-3">Additional Services</h4>
-                           <p className="text-text-body text-sm leading-relaxed">{service.additional}</p>
-                         </div>
-                      )}
-
-                      <div className="mt-12 pt-8 border-t border-white/10 text-center">
-                        <p className="text-white text-base font-medium mb-6">{service.cta}</p>
-                        <Button href="/contact" variant="secondary" className="gap-2 text-sm">
-                          Start a Conversation <ArrowRight className="w-4 h-4" />
-                        </Button>
+                      <div className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-300 transform ${isExpanded ? 'border-glow-blue-300 rotate-180 text-glow-blue-200 shadow-[0_0_15px_rgba(30,195,255,0.5)]' : 'border-white/10 text-white/50'}`}>
+                        <ChevronDown className="w-6 h-6" />
                       </div>
                     </GlassCard>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                  </button>
+
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0, y: -20 }}
+                        animate={{ height: "auto", opacity: 1, y: 0 }}
+                        exit={{ height: 0, opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-12 pb-8 px-2 md:px-6 space-y-20">
+                          {service.subServices.map((sub, i) => (
+                            <div key={i} className="flex flex-col lg:flex-row gap-10 lg:items-start group">
+                              <div className="lg:w-1/3">
+                                <div className="sticky top-32">
+                                  <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-8 relative shadow-[0_20px_50px_rgba(0,0,0,0.6)] group-hover:shadow-[0_0_50px_rgba(30,195,255,0.4)] transition-shadow duration-500 border border-white/10">
+                                    <img src={sub.image} alt={sub.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent pointer-events-none"></div>
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-white mb-4">{sub.title}</h3>
+                                  <p className="text-text-body text-base mb-8 leading-relaxed">
+                                    {sub.intro}
+                                  </p>
+                                  <Button href="/contact" variant="primary">
+                                    Get Free Consultation
+                                  </Button>
+                                </div>
+                              </div>
+                              
+                              <div className="lg:w-2/3">
+                                <GlassCard className="p-8 md:p-10 h-full">
+                                  <div className="grid md:grid-cols-2 gap-10">
+                                    <div>
+                                      <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-glow-blue-200"></span> What We Offer
+                                      </h4>
+                                      <ul className="space-y-4 text-sm">
+                                        {sub.offerings.map((item, idx) => (
+                                          <li key={idx} className="text-text-body flex gap-3">
+                                            <span className="text-glow-blue-300 mt-1">✓</span>
+                                            <span>{item}</span>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                    <div>
+                                      <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+                                        <span className="w-2 h-2 rounded-full bg-glow-blue-200"></span> Our Process
+                                      </h4>
+                                      <ol className="space-y-4 text-sm relative before:absolute before:inset-y-0 before:left-[11px] before:w-[2px] before:bg-white/10">
+                                        {sub.process.map((step, idx) => (
+                                          <li key={idx} className="text-text-body flex gap-4 relative z-10">
+                                            <span className="bg-navy-900 border border-white/20 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-glow-blue-100 shrink-0">
+                                              {idx + 1}
+                                            </span>
+                                            <span className="pt-0.5">{step}</span>
+                                          </li>
+                                        ))}
+                                      </ol>
+                                    </div>
+                                  </div>
+                                </GlassCard>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
 
           <div className="mt-32 text-center">
              <GlassCard className="max-w-3xl mx-auto p-10 bg-gradient-to-br from-navy-800 to-navy-900 !border-glow-blue-300/30">
                <h3 className="text-xl font-bold text-white mb-4">Looking for something specific?</h3>
-               <p className="text-text-body text-sm mb-8">We offer Virtual Assistant Solutions, Data Entry, Presentation Design, Technical Documentation, and more.</p>
+               <p className="text-text-body text-sm mb-8">We offer Custom Digital Solutions, Data Entry, and more.</p>
                <Button href="/contact" variant="primary" className="text-sm">Contact Us for Custom Requests</Button>
              </GlassCard>
           </div>

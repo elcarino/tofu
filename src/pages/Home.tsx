@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Button } from '../components/Button';
 import { GlassCard } from '../components/GlassCard';
 import { Code, Smartphone, PenTool, Layout, TrendingUp, Box, Layers, ArrowRight, Star } from 'lucide-react';
+import { SERVICES_DATA } from '../data/services';
 import globalNetworkMap from '../assets/images/global_network_map_1781851835931.jpg';
 import heroBg from '../assets/images/hero_bg_grid_1781852395970.jpg';
 
@@ -17,15 +18,7 @@ const TESTIMONIALS = [
   { name: "Elena Rostova", role: "Director, Global Reach", review: "Their digital marketing strategy put us on the map locally. We've seen a massive surge in qualified leads." }
 ];
 
-const SERVICES = [
-  { icon: Layout, title: "Website Development", desc: "Fast, scalable websites built around your business goals." },
-  { icon: Smartphone, title: "Mobile App Development", desc: "Native and cross-platform apps for Android & iOS." },
-  { icon: PenTool, title: "UI/UX Design", desc: "Interfaces people enjoy using and trust." },
-  { icon: Code, title: "Graphic Design", desc: "Brand identity that makes you memorable." },
-  { icon: TrendingUp, title: "Digital Marketing", desc: "Get found, get reviewed, get chosen locally." },
-  { icon: Box, title: "Architecture & 3D", desc: "Bring spaces to life before they're built." },
-  { icon: Layers, title: "Custom Solutions", desc: "CRM, ERP, SaaS, and automation built around you." }
-];
+
 
 export function Home() {
   return (
@@ -59,7 +52,7 @@ export function Home() {
               </span>
             </h1>
             <p className="text-base md:text-lg text-text-body max-w-3xl mx-auto mb-10 leading-relaxed">
-              TOFU is a creative studio dedicated to helping startups and businesses across the globe tell their stories through powerful digital solutions — weaving imagination with technology to build websites, apps, and immersive 3D experiences.
+              TOFU is a Business Growth & Digital Solutions Company helping startups and businesses grow through technology, strategy, and digital transformation.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button href="/contact" variant="primary" className="w-full sm:w-auto text-base h-12 px-8">
@@ -81,23 +74,22 @@ export function Home() {
             <h2 className="text-2xl md:text-3xl font-bold text-white">Complete Digital Solutions Tailored to Your Business</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {SERVICES.map((service, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SERVICES_DATA.map((service, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={index === 6 ? "md:col-span-2 xl:col-span-1" : ""}
               >
-                <GlassCard hoverEffect className="h-full flex flex-col items-start gap-4">
-                  <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-                    <service.icon className="w-6 h-6 text-glow-blue-100" />
+                <GlassCard hoverEffect className="h-full flex flex-col items-start gap-4 p-6 md:p-8">
+                  <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+                    <service.icon className="w-8 h-8 text-glow-blue-100" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">{service.title}</h3>
-                  <p className="text-text-body text-xs flex-grow">{service.desc}</p>
-                  <Button href="/services" variant="secondary" className="!px-0 !py-0 !bg-transparent !border-none hover:!bg-transparent text-glow-blue-200 hover:text-white !justify-start gap-2 text-xs mt-4">
+                  <h3 className="text-xl font-bold text-white mt-2">{service.title}</h3>
+                  <p className="text-text-body text-sm flex-grow leading-relaxed">{service.shortDesc}</p>
+                  <Button href="/services" variant="secondary" className="!px-0 !py-0 !bg-transparent !border-none hover:!bg-transparent text-glow-blue-200 hover:text-white !justify-start gap-2 text-sm mt-4 font-semibold">
                     View Details <ArrowRight className="w-4 h-4" />
                   </Button>
                 </GlassCard>
