@@ -1,4 +1,4 @@
-import { Monitor, Megaphone, Paintbrush, TrendingUp, ClipboardList, Building, Globe, Layers, Package } from 'lucide-react';
+import { Monitor, Megaphone, Paintbrush, TrendingUp, ClipboardList, Building, Globe, Layers, Package, Star } from 'lucide-react';
 
 export const SERVICES_DATA = [
   {
@@ -167,13 +167,30 @@ export const SERVICES_DATA = [
             "Posting schedule",
             "Monthly Reporting"
           ]
+        },
+        {
+          title: "Google Reputation Management",
+          image: "https://www.socialpilot.co/wp-content/uploads/2024/12/Enhance-Your-Reputation-with-Google-Review-Management-Tool.webp",
+          intro: "Proactively monitor, manage, and respond to your Google Reviews to build trust and credibility.",
+          offerings: [
+            "24/7 Review Monitoring",
+            "Custom Response Strategies",
+            "Negative Review Mitigation",
+            "Review Generation Campaigns"
+          ],
+          process: [
+            "Audit Current Reviews",
+            "Develop Response Protocol",
+            "Implement Monitoring Tools",
+            "Ongoing Management"
+          ]
         }
     ]
   },
   {
-    id: "reputation-management",
+    id: "graphic-design",
     icon: Paintbrush,
-    title: "Reputation Management",
+    title: "Branding & Graphic Design",
     shortDesc: "Graphic design, brand identity, and presence management.",
     subServices: [
         {

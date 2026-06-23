@@ -120,7 +120,7 @@ export function Portfolio() {
                 className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
                   activeCategory === cat 
                   ? 'bg-glow-blue-300/20 text-white border border-glow-blue-300/50 block shadow-[0_0_15px_rgba(96,165,250,0.2)]' 
-                  : 'bg-white/5 text-text-body border border-white/10 hover:bg-white/10 hover:text-white'
+                  : 'bg-navy-900/5 text-text-body border border-white/10 hover:bg-navy-900/10 hover:text-white'
                 }`}
               >
                 {cat}

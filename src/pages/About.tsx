@@ -6,13 +6,15 @@ import { Target, Eye, ShieldCheck, Zap, Users, PenTool } from 'lucide-react';
 const TEAM = [
   {
     name: "Ahina Ahmed",
-    role: "CEO, Founder & Project Lead",
+    role: "Founder & Digital Solutions Lead",
+    specialties: "Website Development, Digital Services, Graphic Design, Freelance Project Delivery",
     image: "https://i.ibb.co.com/F4tLV9kh/Whats-App-Image-2026-06-19-at-4-49-59-PM-1.jpg",
     imageClass: "w-full h-full object-cover object-top"
   },
   {
     name: "Carlos Bulas",
-    role: "Co-Founder, Business Developer",
+    role: "Business Development & Strategy Lead",
+    specialties: "Business Consulting, Project Management, International Relations, Business Development, Strategic Planning",
     image: "https://i.ibb.co.com/mrQ8C239/Untitled-design-2.png",
     imageClass: "w-full h-full object-cover object-top"
   }
@@ -134,13 +136,20 @@ export function About() {
                 transition={{ duration: 0.8, delay: i * 0.2, ease: "easeOut" }}
                 className="group relative"
               >
-                 <div className="aspect-[4/5] rounded-2xl overflow-hidden mb-6 border border-white/10 relative shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_30px_rgba(30,195,255,0.4)] transition-all duration-500 bg-navy-900/50">
-                   <div className="absolute inset-0 bg-navy-900/10 group-hover:bg-transparent transition-colors z-10"></div>
-                   <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-glow-blue-300/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
-                   <img src={member.image} alt={member.name} className={`${member.imageClass} filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.05]`} />
-                 </div>
-                 <h3 className="text-lg font-bold text-white mb-1 group-hover:text-glow-blue-100 transition-colors">{member.name}</h3>
-                 <p className="text-text-body text-sm">{member.role}</p>
+                 <GlassCard className="p-0 overflow-hidden mb-6 group bg-navy-900 border border-white/10 group-hover:border-glow-blue-300/50 transition-colors duration-500">
+                   <div className="aspect-[4/5] overflow-hidden relative">
+                     <div className="absolute inset-0 bg-navy-900/10 group-hover:bg-transparent transition-colors z-10"></div>
+                     <img src={member.image} alt={member.name} className={`${member.imageClass} filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.05]`} />
+                   </div>
+                   <div className="p-6">
+                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-glow-blue-100 transition-colors">{member.name}</h3>
+                     <p className="text-glow-blue-200 font-medium text-sm mb-4 pb-4 border-b border-white/10">{member.role}</p>
+                     <div>
+                       <h4 className="text-xs uppercase tracking-wider text-white/50 font-semibold mb-2">Specialties</h4>
+                       <p className="text-sm text-text-body font-mono leading-relaxed">{member.specialties}</p>
+                     </div>
+                   </div>
+                 </GlassCard>
               </motion.div>
             ))}
           </div>

@@ -205,7 +205,7 @@ export function Blog() {
                       </AnimatePresence>
                     </div>
                     
-                    <button className="p-2 border border-white/10 rounded-full bg-white/5 text-white shrink-0 group-hover:border-glow-blue-300 transition-colors">
+                    <button className="p-2 border border-white/10 rounded-full bg-navy-900/5 text-white shrink-0 group-hover:border-glow-blue-300 transition-colors">
                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${expandedId === article.id ? 'rotate-180' : ''}`} />
                     </button>
                   </div>

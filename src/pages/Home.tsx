@@ -1,8 +1,7 @@
 import { motion } from 'motion/react';
 import { Button } from '../components/Button';
 import { GlassCard } from '../components/GlassCard';
-import { Code, Smartphone, PenTool, Layout, TrendingUp, Box, Layers, ArrowRight, Star } from 'lucide-react';
-import { SERVICES_DATA } from '../data/services';
+import { Code, Smartphone, PenTool, Layout, TrendingUp, Box, Layers, ArrowRight, Star, Search, CheckCircle2 } from 'lucide-react';
 import globalNetworkMap from '../assets/images/global_network_map_1781851835931.jpg';
 import heroBg from '../assets/images/hero_bg_grid_1781852395970.jpg';
 
@@ -18,7 +17,90 @@ const TESTIMONIALS = [
   { name: "Elena Rostova", role: "Director, Global Reach", review: "Their digital marketing strategy put us on the map locally. We've seen a massive surge in qualified leads." }
 ];
 
+const CORE_SERVICES = [
+  {
+    icon: Layout,
+    title: "Digital Presence",
+    shortDesc: "Build a professional online presence that attracts and converts customers.",
+    subItems: ["Website Design", "Website Development", "Business Websites", "Landing Pages", "Website Maintenance"]
+  },
+  {
+    icon: Search,
+    title: "Google Business Solutions",
+    shortDesc: "Help local customers discover and trust your business online.",
+    subItems: ["Google Business Profile Setup", "Verification", "Google Maps Optimization", "Profile Management", "Google Reputation Management"]
+  },
+  {
+    icon: PenTool,
+    title: "Branding & Graphic Design",
+    shortDesc: "Build a strong brand identity that makes your business memorable.",
+    subItems: ["Logo Design", "Business Cards", "Flyers", "Posters", "Banners", "Brochures", "Company Profiles", "Social Media Graphics"]
+  },
+  {
+    icon: TrendingUp,
+    title: "Business Consulting",
+    shortDesc: "Strategic guidance to accelerate your business growth.",
+    subItems: ["Growth Strategy", "Business Development Consulting", "Market Expansion Support"]
+  },
+  {
+    icon: Layers,
+    title: "Project Management Solutions",
+    shortDesc: "Deliver projects efficiently, on time, and within budget.",
+    subItems: ["Project Planning", "Project Coordination", "Process Improvement"]
+  },
+  {
+    icon: Box,
+    title: "Corporate Support",
+    shortDesc: "Elevating your corporate materials and communications.",
+    subItems: ["Proposal Development", "Company Profile Development", "Corporate Presentations"]
+  }
+];
 
+const SPECIALIZED_SOLUTIONS = [
+  "Mobile App Development", "CRM Development", "ERP Development", "SaaS Platforms", 
+  "AI Solutions", "Enterprise Systems", "API Integrations", "Business Automation"
+];
+
+const SERVICE_PACKAGES = [
+  {
+    title: "Starter Package",
+    items: ["Logo", "Business Card", "Google Business Profile"]
+  },
+  {
+    title: "Digital Presence Package",
+    items: ["Website", "Google Business Profile", "WhatsApp Integration", "Contact Forms"]
+  },
+  {
+    title: "Business Growth Package",
+    items: ["Website", "Branding", "Google Profile Optimization", "Consulting Session"]
+  },
+  {
+    title: "Corporate Package",
+    items: ["Company Profile", "Corporate Presentation", "Website", "Strategic Consultation"]
+  }
+];
+
+const OUR_PROCESS = [
+  { title: "Consultation", desc: "Understanding your goals and challenges." },
+  { title: "Assessment", desc: "Analyzing your current situation." },
+  { title: "Strategy Development", desc: "Creating a tailored solution." },
+  { title: "Proposal", desc: "Presenting scope, timeline, and investment." },
+  { title: "Implementation", desc: "Executing the project professionally." },
+  { title: "Support & Growth", desc: "Providing ongoing assistance and optimization." }
+];
+
+const OUR_TEAM = [
+  {
+    name: "Ahina Ahmed",
+    title: "Founder & Digital Solutions Lead",
+    specialties: "Website Development, Digital Services, Graphic Design, Freelance Project Delivery"
+  },
+  {
+    name: "Carlos",
+    title: "Business Development & Strategy Lead",
+    specialties: "Business Consulting, Project Management, International Relations, Business Development, Strategic Planning"
+  }
+];
 
 export function Home() {
   return (
@@ -46,13 +128,13 @@ export function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Transforming Ideas Into <br className="hidden md:block"/>
+              We Help Businesses Grow <br className="hidden md:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-glow-blue-100 to-glow-blue-300 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]">
-                Digital Opportunities
+                Through Technology, Strategy & Digital Transformation
               </span>
             </h1>
             <p className="text-base md:text-lg text-text-body max-w-3xl mx-auto mb-10 leading-relaxed">
-              TOFU is a Business Growth & Digital Solutions Company helping startups and businesses grow through technology, strategy, and digital transformation.
+              TOFU helps startups, SMEs, and organizations improve visibility, attract customers, streamline operations, and achieve sustainable growth through digital solutions and business expertise.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button href="/contact" variant="primary" className="w-full sm:w-auto text-base h-12 px-8">
@@ -75,13 +157,14 @@ export function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES_DATA.map((service, index) => (
+            {CORE_SERVICES.map((service, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="h-full"
               >
                 <GlassCard hoverEffect className="h-full flex flex-col items-start gap-4 p-6 md:p-8">
                   <div className="p-4 bg-white/5 rounded-xl border border-white/10">
@@ -89,7 +172,19 @@ export function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-white mt-2">{service.title}</h3>
                   <p className="text-text-body text-sm flex-grow leading-relaxed">{service.shortDesc}</p>
-                  <Button href="/services" variant="secondary" className="!px-0 !py-0 !bg-transparent !border-none hover:!bg-transparent text-glow-blue-200 hover:text-white !justify-start gap-2 text-sm mt-4 font-semibold">
+                  
+                  <div className="w-full border-t border-white/10 pt-4 mt-2">
+                    <ul className="space-y-2">
+                      {service.subItems.map((item, i) => (
+                        <li key={i} className="flex items-start text-xs text-text-body">
+                           <CheckCircle2 className="w-4 h-4 text-glow-blue-300 mr-2 shrink-0" />
+                           {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Button href="/services" variant="secondary" className="!px-0 !py-0 !bg-transparent !border-none hover:!bg-transparent text-glow-blue-200 hover:text-white !justify-start gap-2 text-sm mt-4 font-semibold w-full">
                     View Details <ArrowRight className="w-4 h-4" />
                   </Button>
                 </GlassCard>
@@ -99,8 +194,75 @@ export function Home() {
         </div>
       </section>
 
+      {/* SPECIALIZED SOLUTIONS */}
+      <section className="py-24 relative overflow-hidden bg-navy-800/30">
+        <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-glow-blue-200 text-xs font-bold tracking-widest uppercase mb-3 block">Custom Tech</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Specialized Solutions</h2>
+            <p className="text-text-body max-w-2xl mx-auto">Custom technology stacks built for your operational needs.</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {SPECIALIZED_SOLUTIONS.map((item, index) => (
+              <motion.div
+                 key={index}
+                 initial={{ opacity: 0, scale: 0.95 }}
+                 whileInView={{ opacity: 1, scale: 1 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <GlassCard hoverEffect className="p-4 text-center transition-colors flex items-center justify-center h-20">
+                  <span className="font-semibold text-white/90 text-sm md:text-base">{item}</span>
+                </GlassCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE PACKAGES */}
+      <section className="py-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-glow-blue-200 text-xs font-bold tracking-widest uppercase mb-3 block">Bundles</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Service Packages</h2>
+            <p className="text-text-body max-w-2xl mx-auto">Value-packed bundles designed for different business stages.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {SERVICE_PACKAGES.map((pkg, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="h-full"
+              >
+                <GlassCard hoverEffect className="h-full flex flex-col p-6">
+                  <h3 className="text-lg font-bold text-white mb-6 pb-4 border-b border-white/10">{pkg.title}</h3>
+                  <ul className="space-y-4 flex-grow mb-8">
+                    {pkg.items.map((item, i) => (
+                      <li key={i} className="flex items-start text-sm text-text-body">
+                        <CheckCircle2 className="w-5 h-5 text-glow-blue-300 mr-3 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button href="/contact" variant="secondary" className="w-full flex justify-center">
+                    Get Started
+                  </Button>
+                </GlassCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* WHY CHOOSE US */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden bg-navy-800/30">
         {/* Top border line */}
         <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         
@@ -114,22 +276,22 @@ export function Home() {
                 transition={{ duration: 0.8 }}
               >
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Why Choose TOFU?</h2>
-                <p className="text-text-body mb-8 text-base leading-relaxed">
-                  We don't just build software. We build the exact tools your business needs to grow, without the recycled templates or bloated tech stacks.
-                </p>
-                <ul className="space-y-4 text-sm">
+                <ul className="space-y-6 text-sm">
                   {[
-                    "Full-cycle development from concept to launch",
-                    "Fully custom solutions — no recycled templates",
-                    "Modern, scalable, high-performance builds",
-                    "Fast delivery with ongoing support",
-                    "A global team with a business-first mindset"
+                    { title: "International Perspective", desc: "Helping businesses navigate local and global opportunities." },
+                    { title: "Digital Expertise", desc: "Professional digital solutions designed for growth." },
+                    { title: "Business Consulting", desc: "Strategic guidance beyond traditional agency services." },
+                    { title: "Project Management", desc: "Structured execution and efficient delivery." },
+                    { title: "Personalized Support", desc: "Tailored solutions for every client." }
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-white">
-                       <span className="mt-1 w-5 h-5 rounded-full bg-glow-blue-300/20 border border-glow-blue-300/50 flex items-center justify-center shrink-0">
+                    <li key={i} className="flex items-start gap-4 text-white">
+                       <span className="mt-1 w-6 h-6 rounded-full bg-glow-blue-300/20 border border-glow-blue-300/50 flex items-center justify-center shrink-0">
                          <div className="w-1.5 h-1.5 rounded-full bg-glow-blue-100"></div>
                        </span>
-                       {item}
+                       <div>
+                         <span className="block font-bold text-white text-base mb-1">{item.title}</span>
+                         <span className="text-text-body leading-relaxed inline-block">{item.desc}</span>
+                       </div>
                     </li>
                   ))}
                 </ul>
@@ -148,6 +310,40 @@ export function Home() {
           </div>
         </div>
       </section>
+
+      {/* OUR PROCESS */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-glow-blue-200 text-xs font-bold tracking-widest uppercase mb-3 block">Step by Step</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Our Process</h2>
+            <p className="text-text-body max-w-2xl mx-auto">How we work with you from start to finish.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {OUR_PROCESS.map((step, index) => (
+               <motion.div
+                 key={index}
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                 className="relative group cursor-pointer"
+               >
+                 <div className="flex flex-col items-center text-center transition-all duration-300 group-hover:-translate-y-2">
+                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-2xl font-bold text-glow-blue-200 shadow-inner group-hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] group-hover:bg-glow-blue-500/20 group-hover:border-glow-blue-300/50 transition-all duration-300">
+                      {index + 1}
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-3 group-hover:text-glow-blue-200 transition-colors duration-300">{step.title}</h3>
+                    <p className="text-sm text-text-body group-hover:text-white/80 transition-colors duration-300">{step.desc}</p>
+                 </div>
+               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
 
       {/* TESTIMONIALS */}
       <section className="py-24 relative overflow-hidden">

@@ -16,7 +16,7 @@ export function Footer() {
               <span className="text-glow-blue-200">TOFU</span>
             </Link>
             <p className="text-text-body text-sm leading-relaxed">
-              Crafting digital experiences that tell your unique story. We are a creative collective dedicated to transforming ambitious visions into remarkable realities, elevating brands through design and technology.
+              Helping Businesses Grow Through Technology, Strategy & Digital Transformation.
             </p>
           </div>
 

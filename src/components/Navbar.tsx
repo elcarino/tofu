@@ -76,7 +76,7 @@ export function Navbar() {
                 key={link.path}
                 to={link.path}
                 className={`block px-3 py-3 rounded-lg font-medium transition-colors ${
-                  location.pathname === link.path ? 'bg-white/5 text-white' : 'text-text-body'
+                  location.pathname === link.path ? 'bg-navy-900/5 text-white' : 'text-text-body'
                 }`}
               >
                 {link.name}

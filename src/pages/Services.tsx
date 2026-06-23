@@ -59,9 +59,9 @@ export function Services() {
                     onClick={() => setExpandedId(isExpanded ? "" : service.id)}
                     className="w-full text-left"
                   >
-                    <GlassCard className={`p-6 md:p-8 flex items-center justify-between transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.4)] hover:shadow-[0_0_40px_rgba(30,195,255,0.2)] ${isExpanded ? 'border-glow-blue-300 bg-white/5' : 'hover:border-white/30'}`}>
+                    <GlassCard className={`p-6 md:p-8 flex items-center justify-between transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.4)] hover:shadow-[0_0_40px_rgba(30,195,255,0.2)] ${isExpanded ? 'border-glow-blue-300 bg-navy-900/5' : 'hover:border-white/30'}`}>
                       <div className="flex items-center gap-6">
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-colors ${isExpanded ? 'bg-glow-blue-500/20 text-glow-blue-200' : 'bg-white/5 text-white/70'}`}>
+                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-colors ${isExpanded ? 'bg-glow-blue-500/20 text-glow-blue-200' : 'bg-navy-900/5 text-white/70'}`}>
                           <service.icon className="w-8 h-8" />
                         </div>
                         <div>
@@ -123,7 +123,7 @@ export function Services() {
                                       <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
                                         <span className="w-2 h-2 rounded-full bg-glow-blue-200"></span> Our Process
                                       </h4>
-                                      <ol className="space-y-4 text-sm relative before:absolute before:inset-y-0 before:left-[11px] before:w-[2px] before:bg-white/10">
+                                      <ol className="space-y-4 text-sm relative before:absolute before:inset-y-0 before:left-[11px] before:w-[2px] before:bg-navy-900/10">
                                         {sub.process.map((step, idx) => (
                                           <li key={idx} className="text-text-body flex gap-4 relative z-10">
                                             <span className="bg-navy-900 border border-white/20 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-glow-blue-100 shrink-0">

@@ -68,7 +68,7 @@ export function Contact() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                  <GlassCard className="p-8">
-                   <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6">
+                   <div className="w-12 h-12 bg-navy-900/5 border border-white/10 rounded-xl flex items-center justify-center mb-6">
                      <Mail className="w-6 h-6 text-glow-blue-100" />
                    </div>
                    <h3 className="text-white text-sm font-semibold mb-2 flex items-center gap-2">Email Us</h3>
@@ -78,7 +78,7 @@ export function Contact() {
                  </GlassCard>
 
                  <GlassCard className="p-8">
-                   <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6">
+                   <div className="w-12 h-12 bg-navy-900/5 border border-white/10 rounded-xl flex items-center justify-center mb-6">
                      <Phone className="w-6 h-6 text-glow-blue-100" />
                    </div>
                    <h3 className="text-white text-sm font-semibold mb-2">WhatsApp or Call</h3>
@@ -97,7 +97,7 @@ export function Contact() {
                  </GlassCard>
 
                  <GlassCard className="p-8">
-                   <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6">
+                   <div className="w-12 h-12 bg-navy-900/5 border border-white/10 rounded-xl flex items-center justify-center mb-6">
                      <MapPin className="w-6 h-6 text-glow-blue-100" />
                    </div>
                    <h3 className="text-white text-sm font-semibold mb-2">Office</h3>
